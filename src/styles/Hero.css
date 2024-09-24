@@ -1,6 +1,6 @@
 .hero{
     width: 100vw;
-    height: 97vh;
+    height: 1200vh;
 }
 .hero__container{
     width: 100%;
@@ -10,8 +10,8 @@
     position: relative;
 }
 .hero_video{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -23,16 +23,21 @@
     font-size: 12.5rem;
     color: white;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: screen;
   
 }
 .main__hero_container{
     display: flex;
    margin-top: 4rem;
     align-items: center;
+    width: 400vw;
+    will-change: transform;
 }
 .main__hero{
-    width: 100%;
-    height: 80%;
+    width: 80vw;
+    height: 80vh;
     margin-bottom: 1rem;
     display: grid;
     /* margin-right: 2rem; */
@@ -43,6 +48,7 @@
 .hero__footer{
     align-items: end;
     display: flex;
+    width: 80vw;
     justify-content: space-between;
     /* justify-self: end; */
 }
