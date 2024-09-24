@@ -1,6 +1,6 @@
 .hero{
     width: 100vw;
-    height: 100vh;
+    height: 97vh;
 }
 .hero__container{
     width: 100%;
@@ -16,6 +16,7 @@
     position: absolute;
     top: 0;
     left: 0;
+   
 }
 .hero__header_text{
     font-family: 'SUSE', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -34,6 +35,7 @@
     height: 80%;
     margin-bottom: 1rem;
     display: grid;
+    /* margin-right: 2rem; */
     /* place-items: center; */
     flex-direction: column;
     
@@ -56,12 +58,79 @@
     position: absolute;
     height: 1.56rem;
     clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
-
+    cursor: pointer;
+    mix-blend-mode: difference;
 }
 .first_cl{
     left: 80%;
+   animation: rotation 2s ease-in-out 2s infinite;
+}
+.first_cl:hover{
+    animation: rotationstop .5s ease-in-out .5s forwards;
 }
 .second_cl{
     top: 65%;
-   
+    animation: rotationalt 2s ease-in-out 2s infinite;
+}
+.second_cl:hover{
+    animation: rotationaltstop .5s ease-in-out .5s forwards;
+}
+@keyframes rotation{
+0%{
+    transform: rotate(0deg);
+}
+100%{
+    transform: rotate(180deg);
+}
+}
+@keyframes rotationstop{
+    0%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes rotationalt{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-180deg);
+    }
+}
+@keyframes rotationaltstop{
+    0%{
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@media screen and (max-width: 900px){
+    .hero__header_text{
+        /* font-size: 7rem; */
+    }
+    .main__hero{
+        /* width: 80%; */
+    }
+    .hero__container{
+        padding-inline: 4rem;
+    }
+}
+@media screen and (min-width: 900px) and (max-width: 1200px){
+    .hero__header_text{
+        font-size: 9rem;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 899px){
+    .hero__header_text{
+        font-size: 4rem;
+    }
+    .main__hero{
+        width: 100%;
+    }
+    .hero__container{
+        padding-inline: 1rem;
+    }
 }
