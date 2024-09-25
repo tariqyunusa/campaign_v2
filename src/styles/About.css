@@ -1,0 +1,33 @@
+.about_section{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: brown; */
+}
+.about_us__headliner{
+    color: #fff;
+    font-size: 2rem;
+}
+.about__us_container{
+    /* max-width: 65.5rem; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 10rem;
+    font-family: "SUSE";
+}
+.second_section_first_cl{
+    position: absolute;
+    top: 10vh;
+    left: 3.25rem;
+}
+.second_section_second_cl{
+    position: absolute;
+    left: 3.25rem;
+    top: 40.37rem;
+}
