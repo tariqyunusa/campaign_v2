@@ -31,3 +31,49 @@
     left: 3.25rem;
     top: 40.37rem;
 }
+.second_section_first_cl{
+    left: 80%;
+   animation: rotation 2s ease-in-out 2s infinite;
+}
+.second_section_first_cl:hover{
+    animation: rotationstop .5s ease-in-out .5s forwards;
+}
+.second_section_second_cl{
+    top: 65%;
+    animation: rotationalt 2s ease-in-out 2s infinite;
+}
+.second_section_second_cl:hover{
+    animation: rotationaltstop .5s ease-in-out .5s forwards;
+}
+@keyframes rotation{
+0%{
+    transform: rotate(0deg);
+}
+100%{
+    transform: rotate(180deg);
+}
+}
+@keyframes rotationstop{
+    0%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes rotationalt{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-180deg);
+    }
+}
+@keyframes rotationaltstop{
+    0%{
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}

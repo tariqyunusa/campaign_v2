@@ -1,5 +1,6 @@
 .nav_container{
-    width: 100%;
+    width: 100vw;
+    padding-inline: 10rem;
     height: 6rem;
     background: transparent;
     display: flex;
@@ -7,7 +8,8 @@
     align-items: center;
     margin-top: 1rem;
     z-index: 9999;
-    position: relative;
+    position: fixed;
+    top: 0;
     /* padding-inline: 10rem ; */
 }
 .nav__menu{

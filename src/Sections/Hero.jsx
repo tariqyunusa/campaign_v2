@@ -45,7 +45,7 @@ const Hero = () => {
     <div className='hero'>
         <video src={video} className='hero_video' autoPlay loop muted></video>
       <div className="hero__container">
-      <Nav />
+      {/* <Nav /> */}
       <main className='main__hero'>
         <div className="first_cl close"></div>
         <div className="second_cl close"></div>
