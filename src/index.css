@@ -6,14 +6,25 @@
 }
 body{
   background-color: black;
-  overflow-x: scroll;
+  /* overflow-x: hidden; */
 }
 ::-webkit-scrollbar{
   display: none;
 }
 .main{
   display: flex;
-  width: auto;
+  /* width: auto; */
   height: auto;
+  /* height: 1200vh */
+  width: 120vw;
   
+}
+.spacer{
+  width: 100vw;
+  height: 100vh;
+  background-color: aquamarine;
+
+}
+.main_guy{
+  height: 500vh;
 }
