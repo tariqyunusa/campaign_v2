@@ -12,12 +12,12 @@ function App() {
     const HorizontalScroll = ScrollTrigger.create({
       trigger: ".main_guy",
       start: "top top",
-      end: "+=300vh",
+      end: "+=500vh",
       scrub: 1,
       pin: true,
       pinSpacer: false,
       pinSpacing: false,
-      markers: true,
+      // markers: true,
       onUpdate: (self) => {
         gsap.to(".main", 
           {x: `${-100 * self.progress}vw`,
@@ -25,11 +25,24 @@ function App() {
           ease: "power3.inOut"
         }
         )
+        
       }
     })
+    // const opacityAnim = ScrollTrigger.create({
+    //   trigger: ".main_guy",
+    //   start: "end end",
+    //   end: "+=10vh",
+    //   scrub: 1,
+    //   markers: true,
+    //   pin: true,
+    //   // pinSpacing: false,
+    //   // pinSpacer: false,
+
+    // })
 
     return () => {
       HorizontalScroll.kill()
+      // opacityAnim.kill()
     }
   },[])
  
