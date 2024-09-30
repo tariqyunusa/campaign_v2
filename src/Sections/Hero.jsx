@@ -8,7 +8,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 import { useLayoutEffect } from 'react'
 
-const Hero = () => {
+const Hero = ({containerAnimation}) => {
   
   return (
     <div className='hero'>
@@ -31,7 +31,7 @@ const Hero = () => {
         </div>
       </main>
       </div>
-      <About />
+      <About container={containerAnimation}/>
     </div>
   )
 }
