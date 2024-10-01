@@ -5,8 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-inline: 10rem;
-    /* background-color: brown; */
+    
 }
 .about__us_container p {
     font-size: 2.5vw;
@@ -31,25 +30,24 @@
 }
 .second_section_first_cl{
     position: absolute;
-    top: 10vh;
-    left: 3.25rem;
+    top: 20vh;
+    left: 10vw;
+   animation: rotation 2s ease-in-out 2s infinite;
+
 }
 .second_section_second_cl{
     position: absolute;
     left: 3.25rem;
     top: 40.37rem;
-}
-.second_section_first_cl{
-    left: 80%;
-   animation: rotation 2s ease-in-out 2s infinite;
+    animation: rotationalt 2s ease-in-out 2s infinite;
+
 }
 .second_section_first_cl:hover{
     animation: rotationstop .5s ease-in-out .5s forwards;
 }
-.second_section_second_cl{
+/* .second_section_second_cl{
     top: 65%;
-    animation: rotationalt 2s ease-in-out 2s infinite;
-}
+} */
 .second_section_second_cl:hover{
     animation: rotationaltstop .5s ease-in-out .5s forwards;
 }

@@ -1,22 +1,26 @@
+import misolo from "../src/assets/misolo.webp"
+import seeds from "../src/assets/seeds.webp"
+import coffee from "../src/assets/sibaristicas.webp"
+import drone from "../src/assets/drone.webp"
 export const Slider = [{
     name: "Misolo Cosmetics", 
     works: ["Creative Direction", "Art Direction", "Web Presence"],
-    image: "/misolo.webp"
+    image: misolo
 },
 {
     name: "Regals Seeds", 
     works: ["Creative Direction", "Web Presence"],
-    image: "/seeds.webp"
+    image: seeds
 },
 {
     name: "Sibaristica Coffee", 
     works: ["Creative Direction", "Art Direction", "Web Presence"],
-    image: "/sibaristicas.webp"
+    image: coffee
 },
 {
     name: "Tag Labs", 
     works: [ "Web Presence"],
-    image: "/drone.webp"
+    image: drone
 }
 ]
 

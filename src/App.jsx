@@ -7,6 +7,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import { useLayoutEffect, useRef } from 'react'
 import { AppProvider } from './AppContext'
 import { useAppContext } from './AppContext'
+import Works from './Sections/Works'
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
@@ -15,12 +16,11 @@ function App() {
     scrollRef.current = ScrollTrigger.create({
       trigger: ".main_guy",
       start: "top top",
-      end: "+=500vh",
+      end: "+=200vh",
       scrub: 1,
       pin: true,
     invalidateOnRefresh: true,
-      pinSpacer: false,
-      pinSpacing: false,
+      
       onEnter: () => {scrollRef.current = this;},
       onLeave: () => {scrollRef.current = null;},
       onUpdate: (self) => {
@@ -44,16 +44,13 @@ function App() {
 
   return (
     <AppProvider >
+    <Nav />
     <div className='main_guy'>
       <div className='main'>
-      <Nav />
-    <Hero containerAnimation={scrollRef.current}/>
-     {/* <About /> */}
-    </div>
-    <div className="spacer" > 
-
+        <Hero containerAnimation={scrollRef.current}/>
     </div>
     </div>
+    <Works />
     </AppProvider>
    
   )
