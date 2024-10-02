@@ -9,9 +9,9 @@ body{
   background-color: black;
   overflow-x: hidden;
 }
-::-webkit-scrollbar{
-  /* display: none; */
-}
+/* ::-webkit-scrollbar{
+  display: none;
+} */
 .main{
   display: flex;
   /* width: auto; */

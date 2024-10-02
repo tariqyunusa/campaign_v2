@@ -45,9 +45,7 @@
 .second_section_first_cl:hover{
     animation: rotationstop .5s ease-in-out .5s forwards;
 }
-/* .second_section_second_cl{
-    top: 65%;
-} */
+
 .second_section_second_cl:hover{
     animation: rotationaltstop .5s ease-in-out .5s forwards;
 }

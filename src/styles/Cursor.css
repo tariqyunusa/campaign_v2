@@ -1,0 +1,11 @@
+.aux__cursor{
+    width: 6.25rem;
+    height: 6.25rem;
+    background-color: #fff;
+    border-radius: 100%;
+    position: fixed;
+    z-index: 9998;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: transfrom 0.1s ease-out;
+}
