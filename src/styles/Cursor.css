@@ -7,9 +7,23 @@
     z-index: 1000;
     /* mix-blend-mode: difference; */
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out;
-    /* opacity: 0; */
+    transition: transform 0.3s ease-out, opacity 0.3s ease;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .aux__cursor.visible{
     opacity: 1;
+}
+.direction_wrapper__cursor{
+    width: 3.15rem;
+    height: 3.125rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.direction_wrapper__cursor img{
+    transition: transform 0.3s ease;
 }

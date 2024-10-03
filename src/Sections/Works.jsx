@@ -10,12 +10,14 @@ const Works = () => {
     const {gsapInstance, splitWords} = useAppContext()
     const [mousePosition, setMousePosition] = useState({left: 0, top:0})
     const [showCursor, setShowCursor] = useState(false)
+    const [arrowDirection, setArrowDirection] = useState(null)
     const workRef = useRef(null)
 
     const handleMouseMove = (e) => {
       const workElement = workRef.current;
       if (!workElement) return;
       const rect = workElement.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2; 
       if (
           e.clientX >= rect.left &&
           e.clientX <= rect.right &&
@@ -24,10 +26,21 @@ const Works = () => {
       ) {
           setMousePosition({ left: e.clientX - rect.left, top: e.clientY - rect.top });
           setShowCursor(true);
+          if (e.clientX < centerX) {
+              // console.log("left");
+              setArrowDirection('left')
+          } else {
+              // console.log("right");
+              setArrowDirection('right')
+          }
       } else {
-          setShowCursor(false);
+          setShowCursor(false); 
+          setArrowDirection(null)
       }
   };
+  
+
+  
 
 
   useEffect(() => {
@@ -46,7 +59,7 @@ const Works = () => {
    
   return (
     <section className='work__section'  onMouseMove={handleMouseMove}  ref={workRef}>
-     <Cursor x={mousePosition.left} y={mousePosition.top} visible={showCursor} />
+     <Cursor x={mousePosition.left} y={mousePosition.top} visible={showCursor} arrowDirection={arrowDirection}/>
         <div className="close first__work_close"></div>
         <div className="close second__work_close"></div>
        <img src={Slider[index].image} alt={Slider[index].name} className='work__background' />
