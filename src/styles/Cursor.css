@@ -4,8 +4,12 @@
     background-color: #fff;
     border-radius: 100%;
     position: fixed;
-    z-index: 9998;
-    mix-blend-mode: difference;
+    z-index: 1000;
+    /* mix-blend-mode: difference; */
     transform: translate(-50%, -50%);
-    transition: transfrom 0.1s ease-out;
+    transition: transform 0.1s ease-out;
+    /* opacity: 0; */
+}
+.aux__cursor.visible{
+    opacity: 1;
 }

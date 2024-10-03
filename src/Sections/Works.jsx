@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "../styles/Works.css"
 import { Slider } from '../Data'
 import { useAppContext } from '../AppContext'
@@ -9,15 +9,44 @@ const Works = () => {
     const [index, setIndex] = useState(0)
     const {gsapInstance, splitWords} = useAppContext()
     const [mousePosition, setMousePosition] = useState({left: 0, top:0})
-    const mouseMove = (e) => {
-     const {clientX: left, clientY: top} = e
-     setMousePosition({left, top})
-    //  console.log(left);
-     
-    }
+    const [showCursor, setShowCursor] = useState(false)
+    const workRef = useRef(null)
+
+    const handleMouseMove = (e) => {
+      const workElement = workRef.current;
+      if (!workElement) return;
+      const rect = workElement.getBoundingClientRect();
+      if (
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom
+      ) {
+          setMousePosition({ left: e.clientX - rect.left, top: e.clientY - rect.top });
+          setShowCursor(true);
+      } else {
+          setShowCursor(false);
+      }
+  };
+
+
+  useEffect(() => {
+      const workElement = workRef.current
+      if (workElement) {
+          workElement.addEventListener("mousemove", handleMouseMove)
+      }
+      return () => {
+          if (workElement) {
+              workElement.removeEventListener("mousemove", handleMouseMove)
+          }
+      }
+  }, [])
+
+    
+   
   return (
-    <section className='work__section' onMouseMove={mouseMove}>
-      <Cursor x={mousePosition.left} y={mousePosition.top}/>
+    <section className='work__section'  onMouseMove={handleMouseMove}  ref={workRef}>
+     <Cursor x={mousePosition.left} y={mousePosition.top} visible={showCursor} />
         <div className="close first__work_close"></div>
         <div className="close second__work_close"></div>
        <img src={Slider[index].image} alt={Slider[index].name} className='work__background' />
