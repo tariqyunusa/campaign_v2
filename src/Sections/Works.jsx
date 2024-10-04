@@ -11,32 +11,54 @@ const Works = () => {
     const [mousePosition, setMousePosition] = useState({left: 0, top:0})
     const [showCursor, setShowCursor] = useState(false)
     const [arrowDirection, setArrowDirection] = useState(null)
-    const workRef = useRef(null)
+    const workRef = useRef(null);
+
+   
 
     const handleMouseMove = (e) => {
-      const workElement = workRef.current;
-      if (!workElement) return;
-      const rect = workElement.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2; 
-      if (
+        const workElement = workRef.current;
+        if (!workElement) return;
+        
+        const rect = workElement.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+    
+        const isInside =
           e.clientX >= rect.left &&
           e.clientX <= rect.right &&
           e.clientY >= rect.top &&
-          e.clientY <= rect.bottom
-      ) {
+          e.clientY <= rect.bottom;
+    
+        if (isInside) {
           setMousePosition({ left: e.clientX - rect.left, top: e.clientY - rect.top });
           setShowCursor(true);
-          if (e.clientX < centerX) {
-              // console.log("left");
-              setArrowDirection('left')
-          } else {
-              // console.log("right");
-              setArrowDirection('right')
-          }
-      } else {
-          setShowCursor(false); 
-          setArrowDirection(null)
-      }
+          setArrowDirection(e.clientX < centerX ? 'left' : 'right');
+        } else {
+          setShowCursor(false);
+          setArrowDirection(null);
+        }
+      };
+
+      
+      const NextIndex = () => {
+        setIndex((currentIndex) => (currentIndex + 1) % Slider.length);
+      };
+    
+      const prevIndex = () => {
+        setIndex((currentIndex) => (currentIndex === 0 ? Slider.length - 1 : currentIndex - 1));
+      };
+
+   const handleIndex = (e) => {
+    const workElement = workRef.current;
+    if (!workElement) return;
+
+    const rect = workElement.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+
+    if (e.clientX >= centerX) {
+      NextIndex();
+    } else {
+      prevIndex();
+    }
   };
   
 
@@ -58,7 +80,7 @@ const Works = () => {
     
    
   return (
-    <section className='work__section'  onMouseMove={handleMouseMove}  ref={workRef}>
+    <section className='work__section'  onMouseMove={handleMouseMove} onClick={handleIndex} ref={workRef}>
      <Cursor x={mousePosition.left} y={mousePosition.top} visible={showCursor} arrowDirection={arrowDirection}/>
         <div className="close first__work_close"></div>
         <div className="close second__work_close"></div>
