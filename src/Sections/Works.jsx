@@ -4,6 +4,7 @@ import { Slider } from '../Data'
 import { useAppContext } from '../AppContext'
 import exploreImg from "../assets/arrow-up-right.png"
 import Cursor from '../components/Cursor'
+import gsap from 'gsap'
 
 const Works = () => {
     const [index, setIndex] = useState(0)
@@ -12,6 +13,7 @@ const Works = () => {
     const [showCursor, setShowCursor] = useState(false)
     const [arrowDirection, setArrowDirection] = useState(null)
     const workRef = useRef(null);
+    const imageRef = useRef(null)
 
    
 
@@ -38,13 +40,35 @@ const Works = () => {
         }
       };
 
+      const animateImage = (newIndex) => {
+        const tl = gsap.timeline()
+
+        tl.to(imageRef.current, {
+          clipPath: 'polygon(100% 0, 100% 100%, 100% 100%, 100% 0)',
+          duration:0.8,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            setIndex(newIndex)
+          }
+        })
+        tl.fromTo(imageRef.current, {
+          clipPath: 'polygon(0 0, 0 100%, 0 100%, 0 0)',
+        },{
+          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          duration: 0.8,
+          ease: 'power2.inOut'
+        })
+      }
+
       
       const NextIndex = () => {
-        setIndex((currentIndex) => (currentIndex + 1) % Slider.length);
+        const nextIndex = (index + 1) % Slider.length
+        animateImage(nextIndex)
       };
     
       const prevIndex = () => {
-        setIndex((currentIndex) => (currentIndex === 0 ? Slider.length - 1 : currentIndex - 1));
+        const prevIndex = index === 0 ? Slider.length - 1: index - 1 
+        animateImage(prevIndex)
       };
 
    const handleIndex = (e) => {
@@ -84,7 +108,7 @@ const Works = () => {
      <Cursor x={mousePosition.left} y={mousePosition.top} visible={showCursor} arrowDirection={arrowDirection}/>
         <div className="close first__work_close"></div>
         <div className="close second__work_close"></div>
-       <img src={Slider[index].image} alt={Slider[index].name} className='work__background' />
+       <img src={Slider[index].image} alt={Slider[index].name} className='work__background' ref={imageRef} />
       <div className="work__wrapper">
             <div className='redundant'>
             <div className="work___info">
