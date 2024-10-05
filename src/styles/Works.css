@@ -125,3 +125,26 @@
 .second__work_close:hover{
     animation: rotationaltstop .5s ease-in-out .5s forwards;
 }
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .work___info_header{
+        font-size: 3rem;
+    }
+    .work__wrapper{
+        padding-inline: 4rem;
+    }
+
+}
+@media screen and (min-width: 320px) and (max-width: 899px) {
+    .work___info_header{
+        font-size: 2rem;
+    }
+    .work__wrapper{
+        padding-inline: 1rem;
+    }
+    .work___roles_paragraph{
+        font-size: 1rem;
+    }
+    .work__section{
+        cursor: auto;
+    }
+}

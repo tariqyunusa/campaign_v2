@@ -20,15 +20,12 @@ body{
   width: 120vw;
   
 }
-.spacer{
-  width: 100vw;
-  height: 100vh;
-  background-color: aquamarine;
-
+.pin-spacer{
+  padding: 0;
 }
-.main_guy{
+/* .main_guy{
   height: 120vh;
-}
+} */
 img{
   width: 100%;
   height: 100%;

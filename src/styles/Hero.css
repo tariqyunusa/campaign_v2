@@ -134,10 +134,13 @@
     .hero__header_text{
         font-size: 9rem;
     }
+    .hero{
+        gap: 8rem;
+    }
 }
 @media screen and (min-width: 320px) and (max-width: 899px){
     .hero__header_text{
-        font-size: 4rem;
+        font-size: 2rem;
     }
     .main__hero{
         width: 100%;
@@ -145,4 +148,8 @@
     .hero__container{
         padding-inline: 1rem;
     }
+    .hero{
+        gap: 4rem;
+    }
+    
 }

@@ -21,7 +21,7 @@ const About = ({container}) => {
       },
       opacity: 1,
       ease: "none",
-      stagger: 0.3
+      stagger: 0.1
     })
   },[])
   

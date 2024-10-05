@@ -21,3 +21,8 @@
 .menu{
     mix-blend-mode: difference;
 }
+@media screen and (min-width: 320px) and (max-width: 899px) {
+    .nav_container{
+        padding-inline: 1rem;
+    } 
+}

@@ -81,3 +81,21 @@
         transform: rotate(0deg);
     }
 }
+@media screen and (min-width: 320px) and (max-width: 899px) {
+    .about__us_container{
+        padding-inline: 1rem;
+        margin-top: 10rem;
+        width: 90vw;
+    }
+    .about_section{
+        width: 100vw;
+    }
+    .about__us_container p{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .about__us_container{
+        padding-inline: 4rem;
+    }
+}
