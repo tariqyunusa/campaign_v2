@@ -13,7 +13,8 @@ const Works = () => {
     const [showCursor, setShowCursor] = useState(false)
     const [arrowDirection, setArrowDirection] = useState(null)
     const workRef = useRef(null);
-    const imageRef = useRef(null)
+    const headlinerRef = useRef(null)
+    const worksRef = useRef([])
 
    
 
@@ -40,35 +41,13 @@ const Works = () => {
         }
       };
 
-      const animateImage = (newIndex) => {
-        const tl = gsap.timeline()
-
-        tl.to(imageRef.current, {
-          clipPath: 'polygon(100% 0, 100% 100%, 100% 100%, 100% 0)',
-          duration:0.8,
-          ease: 'power2.inOut',
-          onComplete: () => {
-            setIndex(newIndex)
-          }
-        })
-        tl.fromTo(imageRef.current, {
-          clipPath: 'polygon(0 0, 0 100%, 0 100%, 0 0)',
-        },{
-          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-          duration: 0.8,
-          ease: 'power2.inOut'
-        })
-      }
-
       
       const NextIndex = () => {
-        const nextIndex = (index + 1) % Slider.length
-        animateImage(nextIndex)
+        setIndex((currentIndex) => (currentIndex + 1) % Slider.length);
       };
     
       const prevIndex = () => {
-        const prevIndex = index === 0 ? Slider.length - 1: index - 1 
-        animateImage(prevIndex)
+        setIndex((currentIndex) => (currentIndex === 0 ? Slider.length - 1 : currentIndex - 1));
       };
 
    const handleIndex = (e) => {
@@ -77,12 +56,62 @@ const Works = () => {
 
     const rect = workElement.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
+    const tl = gsap.timeline()
 
     if (e.clientX >= centerX) {
-      NextIndex();
+      // NextIndex();
+      tl.to('.work___info_header', {
+        y: 200,
+        duration: 1,
+        ease:"power2.inOut",
+        onComplete: () => NextIndex()
+      })
+      .to('.work___roles_paragraph', {
+        y: -800,
+        duration: 1,
+        ease:"power2.inOut",
+      },"=-1")
+      tl.to(headlinerRef.current, {
+        y: 0,
+        duration: 1,
+        ease: "power2.inOut",
+        // stagger: 0.3
+      })
+      .to('.work___roles_paragraph', {
+        y: 0,
+        duration: 1,
+        ease: "power2.inOut",
+        // stagger: 0.2
+      }, "-=1")
+      
     } else {
-      prevIndex();
+      // prevIndex();
+      tl.to('.work___info_header', {
+        y: -200,
+        duration: 1,
+        ease: "power2.inOut",
+        onComplete: () => prevIndex()
+      })
+      .to('.work___roles_paragraph', {
+        y: 200,
+        duration: 1,
+        ease:"power2.inOut",
+      },"=-1")
+      // 
+      tl.to(headlinerRef.current, {
+        y: 0,
+        duration: 1,
+        ease: "power2.inOut",
+        stagger: 0.3
+      })
+      .to('.work___roles_paragraph', {
+        y: 0,
+        duration: 1,
+        ease: "power2.inOut",
+        // stagger: 0.2
+      }, "-=1")
     }
+    
   };
   
 
@@ -108,14 +137,14 @@ const Works = () => {
      <Cursor x={mousePosition.left} y={mousePosition.top} visible={showCursor} arrowDirection={arrowDirection}/>
         <div className="close first__work_close"></div>
         <div className="close second__work_close"></div>
-       <img src={Slider[index].image} alt={Slider[index].name} className='work__background' ref={imageRef} />
+       <img src={Slider[index].image} alt={Slider[index].name} className='work__background' />
       <div className="work__wrapper">
             <div className='redundant'>
             <div className="work___info">
-               <h1 className='work___info_header'>{splitWords(Slider[index].name)}</h1>
+                <div className='work___info_header_wrapper'><h1 className='work___info_header' ref={headlinerRef}>{splitWords(Slider[index].name)}</h1></div>
                 <div className='work__roles'>
                     {Slider[index].works.map((work, index) => (
-                       <p key={index} className='work___roles_paragraph'>{work}</p>
+                       <p key={index} className='work___roles_paragraph' ref={el => worksRef.current.push((el))}>{work}</p>
                     ))}
                 </div>
             </div>

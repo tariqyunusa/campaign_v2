@@ -43,6 +43,11 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    overflow: hidden;
+}
+.work___info_header_wrapper{
+    position: relative;
+    overflow: hidden;
 }
 .work___info_header{
     font-size: 4rem;
