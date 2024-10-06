@@ -8,6 +8,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { AppProvider } from './AppContext'
 import { useAppContext } from './AppContext'
 import Works from './Sections/Works'
+import Testiomonials from './Sections/Testimonial'
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
     </div>
     </div>
     <Works />
+    <Testiomonials />
     </AppProvider>
    
   )

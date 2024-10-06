@@ -1,0 +1,24 @@
+.testimonials__wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    padding: 7rem 10rem;
+    /* margin: 5rem 0; */
+}
+.testimonials__headline_paragraph{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.testimonial__close{
+    right: 20%;
+    position: absolute;
+    animation: rotation 2s ease-in-out 2s infinite;
+}
+@keyframes rotation{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+    }

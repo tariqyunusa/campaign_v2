@@ -119,17 +119,15 @@
         transform: rotate(0deg);
     }
 }
-@media screen and (max-width: 900px){
+/* @media screen and (max-width: 900px){
     .hero__header_text{
-        /* font-size: 7rem; */
+        font-size: 7rem;
     }
     .main__hero{
-        /* width: 80%; */
+        width: 80%;
     }
-    .hero__container{
-        padding-inline: 4rem;
-    }
-}
+    
+} */
 @media screen and (min-width: 900px) and (max-width: 1200px){
     .hero__header_text{
         font-size: 9rem;
@@ -151,5 +149,6 @@
     .hero{
         gap: 4rem;
     }
+   
     
 }
