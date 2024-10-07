@@ -14,6 +14,13 @@
     position: absolute;
     animation: rotation 2s ease-in-out 2s infinite;
 }
+.testimonials__main_content{
+    width: 100%;
+    /* background-color: black; */
+    height: 100%;
+    padding: 1rem 0;
+    margin: 1rem 0;
+}
 @keyframes rotation{
     0%{
         transform: rotate(0deg);

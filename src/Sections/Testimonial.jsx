@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/Testimonials.css'
+import Reviews from '../components/Reviews'
 
 const Testimonials = () => {
     return(
@@ -9,7 +10,7 @@ const Testimonials = () => {
                 <p className='testimonials__headline_paragraph'>What the streets says about us</p>
             </div>
             <div className="testimonials__main_content">
-
+              <Reviews />
             </div>
         </div>
     )
