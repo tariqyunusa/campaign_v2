@@ -3,8 +3,9 @@ import './App.css'
 import About from './Sections/About'
 import Nav from './components/Nav'
 import gsap from 'gsap'
+import Lenis from 'lenis'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import { AppProvider } from './AppContext'
 import { useAppContext } from './AppContext'
 import Works from './Sections/Works'
@@ -40,6 +41,20 @@ function App() {
       
     }
   },[])
+
+
+useEffect(() => {
+  const lenis = new Lenis();
+  lenis.on('scroll', (e) => {
+    // console.log(e);
+  });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); 
+});
+  gsap.ticker.lagSmoothing(0);
+},[])
+
   
   
 

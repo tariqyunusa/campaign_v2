@@ -9,7 +9,7 @@ const Reviews = () => {
   return (
     <div className='reviews__wrapper'>
       {Testimonies.map((review, index) => (
-        <div key={index} style={{backgroundColor: review.color, width: countIndex === index ? '55%' : "auto", transition: 'width 2s ease-in-out' }} className={`review review-${index+1}`} onMouseEnter={() => handleMouse(index)}>
+        <div key={index} style={{backgroundColor: review.color, width: countIndex === index ? '55%' : "auto", transition: ' all 1s cubic-bezier(0.88, -0.05, 0.36, 1)' }} className={`review review-${index+1}`} onMouseEnter={() => handleMouse(index)}>
             {countIndex === index ?  
             <div className='review__quote'>
                <div> <p className='quote'>"{review.quote}"</p></div>

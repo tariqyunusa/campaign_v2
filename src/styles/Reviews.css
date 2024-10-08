@@ -13,7 +13,7 @@
     cursor: pointer;
     width: 15%;
     /* flex: 1; */
-    transition: width 2s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 /* .review-2{
     width: 55%;
