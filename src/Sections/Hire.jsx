@@ -35,7 +35,7 @@ const Hire = () => {
 
         setTimeout(() => {
             setShowLink(false)
-        }, 5000)
+        }, 8000)
     }
 
   return (

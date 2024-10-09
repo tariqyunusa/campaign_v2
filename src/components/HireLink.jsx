@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {LinkColors} from '../Data'
 import "../styles/HireLink.css"
 import { FiSend } from "react-icons/fi";
 const HireLink = ({posX, posY}) => {
-   const index = Math.floor(Math.random() * LinkColors.length)
-   const color = LinkColors[index]
+    const [color, setColor] = useState(LinkColors[Math.floor(Math.random() * LinkColors.length)])
+    const handleHover = () => {
+        const newColor = LinkColors[Math.floor(Math.random() * LinkColors.length)]
+        setColor(newColor)
+    }
   return (
     <div>
-         <div  className='hire__link' style={{ backgroundColor: color, top: `${posY - 100}px`, left: posX }}>
+         <a className='hire__link' href='/' style={{ backgroundColor: color, top: `${posY - 100}px`, left: posX }} onMouseEnter={handleHover}>
             <FiSend />
-            <a href="/">Send a mail</a>
-         </div>
+            <p >Send a mail</p>
+         </a>
     </div>
   )
 }
