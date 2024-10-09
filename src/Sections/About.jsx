@@ -17,12 +17,20 @@ const About = ({container}) => {
         scrub: true,
         start: "left end",
         end: `+=${window.innerHeight / 2}`,
-        containerAnimation: container
+        containerAnimation: container,
+        // onUpdate: (self) => {
+        //   gsap.to('.second_section_second_cl', {
+        //     x: `${100 * self.progress} vw`,
+        //     duration: 0.6,
+        //     ease: "none"
+        //   })
+        // }
       },
       opacity: 1,
       ease: "none",
       stagger: 0.1
     })
+    
   },[])
   
   return (

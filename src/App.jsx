@@ -10,6 +10,7 @@ import { AppProvider } from './AppContext'
 import { useAppContext } from './AppContext'
 import Works from './Sections/Works'
 import Testiomonials from './Sections/Testimonial'
+import Hire from './Sections/Hire'
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
@@ -68,6 +69,7 @@ useEffect(() => {
     </div>
     <Works />
     <Testiomonials />
+    <Hire />
     </AppProvider>
    
   )
