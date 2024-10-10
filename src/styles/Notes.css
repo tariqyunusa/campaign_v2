@@ -1,0 +1,8 @@
+.notes__wrapper{
+    width: 15.6rem;
+    height: 15.6rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
