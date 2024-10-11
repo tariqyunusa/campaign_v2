@@ -31,7 +31,7 @@ const Notes = ({ posX, posY }) => {
             // Remove the note after 10 seconds
             setTimeout(() => {
                 setNotes(prevNotes => prevNotes.filter(note => note.id !== newNote.id));
-            }, 10000); // 10 seconds
+            }, 3000); // 10 seconds
         };
 
         // Create the first note immediately

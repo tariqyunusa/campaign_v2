@@ -5,15 +5,17 @@ import Nav from './components/Nav'
 import gsap from 'gsap'
 import Lenis from 'lenis'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { AppProvider } from './AppContext'
-import { useAppContext } from './AppContext'
+import BlackLogo from './assets/Black-logo.png'
+import whiteLogo from './assets/Subtract.svg'
 import Works from './Sections/Works'
 import Testiomonials from './Sections/Testimonial'
 import Hire from './Sections/Hire'
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
+  const [nav, setNav] = useState({logo: whiteLogo, menu: "white"})
   const scrollRef = useRef(null)
   useLayoutEffect(() => {
     scrollRef.current = ScrollTrigger.create({
@@ -42,8 +44,6 @@ function App() {
       
     }
   },[])
-
-
 useEffect(() => {
   const lenis = new Lenis();
   lenis.on('scroll', (e) => {
@@ -56,12 +56,30 @@ useEffect(() => {
   gsap.ticker.lagSmoothing(0);
 },[])
 
+useEffect(() => {
+  ScrollTrigger.create({
+    trigger: ".testimonials__wrapper",
+    start: "top top",
+    end: "bottom bottom",
+    onEnter: () => {
+      setNav({logo: BlackLogo, menu: "black"})
+    }, 
+    onLeaveBack: () => {
+      setNav({logo: whiteLogo, menu: "white"})
+    }
+  })
+  
+},[])
+
+
+
+
   
   
 
   return (
     <AppProvider >
-    <Nav />
+    <Nav color={nav} />
     <div className='main_guy'>
       <div className='main'>
         <Hero containerAnimation={scrollRef.current}/>

@@ -26,27 +26,24 @@ const Hire = () => {
 
     useEffect(() => {
         const header = wrapperRef.current;
+        const wrapper = sectionRef.current;
         if (header) {
             header.addEventListener("mousemove", mousePosition);
+        }
+        if (wrapper) {
+            wrapper.addEventListener("mousemove", notesPosition);
         }
         return () => {
             if (header) {
                 header.removeEventListener("mousemove", mousePosition);
             }
-        };
-    }, []);
-
-    useEffect(() => {
-        const wrapper = sectionRef.current;
-        if (wrapper) {
-            wrapper.addEventListener("mousemove", notesPosition);
-        }
-        return () => {
             if (wrapper) {
                 wrapper.removeEventListener("mousemove", notesPosition);
             }
         };
+       
     }, []);
+
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -54,7 +51,7 @@ const Hire = () => {
                 if (prev.length >= 5) return [...prev.slice(1), notePos]; 
                 return [...prev, notePos];
             });
-        }, 100); // Adjust the timing to match note creation speed
+        }, 300);
 
         return () => clearInterval(intervalId);
     }, [notePos]);
@@ -70,7 +67,7 @@ const Hire = () => {
         setShowNotes(true);
         setTimeout(() => {
             setShowNotes(false);
-        }, 5000); // Notes will stop showing after 5 seconds
+        }, 5000); 
     };
 
     return (
