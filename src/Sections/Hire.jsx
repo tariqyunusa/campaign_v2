@@ -15,20 +15,13 @@ const Hire = () => {
     const mousePosition = (e) => {
         const header = wrapperRef.current;
         if (!header) return;
-
-        // Update mouse position for HireLink
         setMousePos({ x: e.clientX, y: e.clientY });
-        // console.log(`Mouse Position (Link): ${e.clientX}, ${e.clientY}`);
     };
 
     const notesPosition = (e) => {
         const wrapper = sectionRef.current;
         if (!wrapper) return;
-
-        // Update notes position based on mouse movement in the container
         setNotePos({ x: e.clientX, y: e.clientY });
-        // console.log(notePos);
-        
     };
 
     useEffect(() => {
@@ -58,10 +51,10 @@ const Hire = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setPositions((prev) => {
-                if (prev.length >= 10) return [...prev.slice(1), notePos]; 
+                if (prev.length >= 5) return [...prev.slice(1), notePos]; 
                 return [...prev, notePos];
             });
-        }, 1000);
+        }, 100); // Adjust the timing to match note creation speed
 
         return () => clearInterval(intervalId);
     }, [notePos]);
@@ -77,13 +70,9 @@ const Hire = () => {
         setShowNotes(true);
         setTimeout(() => {
             setShowNotes(false);
-        }, 5000);
+        }, 5000); // Notes will stop showing after 5 seconds
     };
-    useEffect(() => {
-        console.log("new positions", positions);
-        
-    },[positions])
-    
+
     return (
         <div className='hire__wrapper' onMouseEnter={handleNotes} ref={sectionRef}>
             {showNotes && positions.map((pos, i) => (
