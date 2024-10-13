@@ -18,7 +18,7 @@ const Notes = ({ posX, posY }) => {
             const randomColor = coolColor[Math.floor(Math.random() * coolColor.length)];
 
             const newNote = {
-                id: Math.random(), // Unique ID
+                id: Math.random(),
                 posX,
                 posY,
                 text: randomText,
@@ -26,7 +26,10 @@ const Notes = ({ posX, posY }) => {
             };
 
             // Add the new note to the list
-            setNotes(prevNotes => [...prevNotes, newNote]);
+            setNotes(prevNotes => {
+                const updatedNotes = [...prevNotes, newNote];
+                return updatedNotes.length > 5 ? updatedNotes.slice(updatedNotes.length - 5) : updatedNotes;
+            });
 
             // Remove the note after 10 seconds
             setTimeout(() => {
@@ -39,11 +42,11 @@ const Notes = ({ posX, posY }) => {
 
         const intervalId = setInterval(() => {
             createNewNote();
-        }, 10000);
+        }, 3000);
 
       
         return () => clearInterval(intervalId);
-    }, [posX, posY, coolColor, coolText]); 
+    }, [posX, posY, ]); 
 
     return (
         <div>

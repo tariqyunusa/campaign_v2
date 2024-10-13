@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import "../styles/Hire.css";
 import HireLink from '../components/HireLink';
 import Notes from '../components/Notes';
+import Footer from '../Sections/Footer'
 
 const Hire = () => {
     const wrapperRef = useRef(null);
@@ -27,28 +28,35 @@ const Hire = () => {
     useEffect(() => {
         const header = wrapperRef.current;
         const wrapper = sectionRef.current;
+
         if (header) {
             header.addEventListener("mousemove", mousePosition);
         }
         if (wrapper) {
             wrapper.addEventListener("mousemove", notesPosition);
+
+            wrapper.addEventListener("mouseenter", () => setShowNotes(true));
+
+            wrapper.addEventListener("mouseleave", () => setShowNotes(false));
         }
+
         return () => {
             if (header) {
                 header.removeEventListener("mousemove", mousePosition);
             }
             if (wrapper) {
                 wrapper.removeEventListener("mousemove", notesPosition);
+                wrapper.removeEventListener("mouseenter", () => setShowNotes(true));
+                wrapper.removeEventListener("mouseleave", () => setShowNotes(false));
             }
         };
-       
     }, []);
 
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             setPositions((prev) => {
-                if (prev.length >= 3) return [...prev.slice(1), notePos]; 
+                if (prev.length >= 5) return [...prev.slice(5), notePos]; 
                 return [...prev, notePos];
             });
         }, 300);
@@ -71,7 +79,8 @@ const Hire = () => {
     };
 
     return (
-        <div className='hire__wrapper' onMouseEnter={handleNotes} ref={sectionRef}>
+       <div className='reddunat__1'>
+         <div className='hire__wrapper' onMouseEnter={handleNotes} ref={sectionRef}>
             {showNotes && positions.map((pos, i) => (
                 <Notes key={i} posX={pos.x} posY={pos.y} />
             ))}
@@ -85,6 +94,9 @@ const Hire = () => {
                 </h1>
             </div>
         </div>
+        <Footer />
+       </div>
+
     );
 };
 

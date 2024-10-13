@@ -12,7 +12,7 @@ import whiteLogo from './assets/Subtract.svg'
 import Works from './Sections/Works'
 import Testiomonials from './Sections/Testimonial'
 import Hire from './Sections/Hire'
-import Footer from './Sections/Footer'
+
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
@@ -89,7 +89,6 @@ useEffect(() => {
     <Works />
     <Testiomonials />
     <Hire />
-    <Footer />
     </AppProvider>
    
   )

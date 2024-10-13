@@ -8,6 +8,8 @@
     align-items: center;
     color: #fff;
     flex-direction: column;
+    position: fixed;
+    bottom: 0;
 }
 .footer__headline{
     font-size: 12.5rem;
@@ -23,4 +25,11 @@
 .footer_copyright__links{
     display: flex;
     gap: 1rem;
+}
+.redunat_2{
+    position: relative;
+    height: 50vh;
+    width: 100vw;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
 }

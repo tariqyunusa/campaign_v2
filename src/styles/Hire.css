@@ -25,6 +25,9 @@
     margin-right: 5rem;
     cursor: pointer;
 }
+.reddunat__1{
+    position: relative;
+}
 @keyframes marquee{
     0%{
         transform: translateX(100%);

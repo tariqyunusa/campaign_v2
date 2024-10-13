@@ -4,6 +4,7 @@
     /* background-color: red; */
     display: flex;
     gap: 1rem;
+    /* user-select: none; */
 }
 .review{
     border-radius: 10px;
@@ -22,6 +23,7 @@
     transform: rotate(-90deg);
     font-size: 1rem;
     opacity: 0.6;
+   
 }
 .review:hover{
     width: 55%;
