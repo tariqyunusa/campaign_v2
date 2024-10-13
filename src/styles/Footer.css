@@ -1,0 +1,26 @@
+.footer__wrapper{
+    padding-inline: 10rem;
+    width: 100vw;
+    height: 50vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    flex-direction: column;
+}
+.footer__headline{
+    font-size: 12.5rem;
+    pointer-events: none;
+
+}
+.footer__links_wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer_copyright__links{
+    display: flex;
+    gap: 1rem;
+}

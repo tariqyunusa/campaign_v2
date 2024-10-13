@@ -48,7 +48,7 @@ const Hire = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setPositions((prev) => {
-                if (prev.length >= 5) return [...prev.slice(1), notePos]; 
+                if (prev.length >= 3) return [...prev.slice(1), notePos]; 
                 return [...prev, notePos];
             });
         }, 300);

@@ -5,14 +5,14 @@ import "../styles/Notes.css";
 const Notes = ({ posX, posY }) => {
     const coolText = Hire[1]?.text || [];
     const coolColor = Hire[0]?.colors || [];
-    const [notes, setNotes] = useState([]); // State to store all notes
+    const [notes, setNotes] = useState([]);
 
     useEffect(() => {
         if (!coolColor.length || !coolText.length) {
             return;
         }
 
-        // Function to create and add a new note
+       
         const createNewNote = () => {
             const randomText = coolText[Math.floor(Math.random() * coolText.length)];
             const randomColor = coolColor[Math.floor(Math.random() * coolColor.length)];
@@ -37,15 +37,13 @@ const Notes = ({ posX, posY }) => {
         // Create the first note immediately
         createNewNote();
 
-        // Every time the mouse moves, create a new note
-        // This interval is to simulate note creation based on movement
         const intervalId = setInterval(() => {
             createNewNote();
-        }, 10000); // Every 10 seconds
+        }, 10000);
 
-        // Cleanup interval on component unmount
+      
         return () => clearInterval(intervalId);
-    }, [posX, posY, coolColor, coolText]); // Trigger effect on mouse position change
+    }, [posX, posY, coolColor, coolText]); 
 
     return (
         <div>
