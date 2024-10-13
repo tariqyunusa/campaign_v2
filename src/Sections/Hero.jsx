@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from '../components/Nav'
 import About from './About'
 import '../styles/Hero.css'
@@ -9,7 +9,25 @@ gsap.registerPlugin(ScrollTrigger)
 import { useLayoutEffect } from 'react'
 
 const Hero = ({containerAnimation}) => {
-  
+  const [time, setTime] = useState(new Date())
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date())
+    },1000)
+
+    return () => clearInterval(timer)
+  },[])
+
+  const formatTime = (date) => {
+    return new Intl.DateTimeFormat('en-US', {
+      hour: 'numeric',
+      minute: "numeric",
+      // second: 'numeric',
+      hour12: false,
+      timeZone: 'Africa/Lagos'
+    }).format(date)
+  }
   return (
     <div className='hero'>
         <video src={video} className='hero_video' autoPlay loop muted></video>
@@ -23,11 +41,11 @@ const Hero = ({containerAnimation}) => {
         </div>
         <div className="hero__footer">
             <div className="location__hero">
-                <p>Lagos(NG)</p>
+                <p>{`NG (${formatTime(time)})`}</p>
             </div>
-            <div className="location__hero">
+            {/* <div className="location__hero">
                 <p>12:00 am</p>
-            </div>
+            </div> */}
         </div>
       </main>
       </div>
