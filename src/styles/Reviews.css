@@ -42,3 +42,11 @@
    color: #fff;
    font-size: 1rem;
 }
+@media screen and (min-width: 320px) and (max-width: 900px) {
+    .reviews__wrapper{
+        flex-direction: column;
+    }
+    .review__quote{
+        width: 100%;
+    }
+}
