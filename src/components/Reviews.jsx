@@ -3,12 +3,12 @@ import "../styles/Reviews.css"
 import {Testimonies} from '../Data'
 const Reviews = () => {
     const [countIndex, setIndex] = useState(1)
-    const [screenSize, setScreenSize] = useState(false)
+    const [screenSize, setScreenSize] = useState(window.innerWidth > 900)
     const handleMouse = (index) =>{
         setIndex(index)
     }
     const determineScreenSize = () => {
-      setScreenSize(true)
+      setScreenSize(window.innerWidth > 900)
     }
     useEffect(() => {},[])
 
