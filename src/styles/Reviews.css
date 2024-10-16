@@ -46,7 +46,20 @@
     .reviews__wrapper{
         flex-direction: column;
     }
+    .review{
+        width: 100%;
+    }
     .review__quote{
         width: 100%;
+        gap: 2rem;
+    }
+    .review__cover_paragraph{
+        display: none;
+    }
+    .testimonials__headline_paragraph{
+        font-size: 2rem;
+    }
+    .testimonial__close{
+        right: 10%;
     }
 }
