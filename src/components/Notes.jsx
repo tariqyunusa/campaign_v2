@@ -59,6 +59,7 @@ const Notes = ({ posX, posY }) => {
                         top: note.posY,
                         left: note.posX,
                         position: 'absolute',
+                        display: (note.posX === 0 || note.posY === 0) ? 'none' : 'block'
                     }}
                 >
                     <p>{note.text}</p>
