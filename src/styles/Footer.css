@@ -33,3 +33,17 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
 }
+@media screen and (min-width: 320px) and (max-width: 900px) {
+    .footer__headline{
+        font-size: 5rem;
+    }
+    .footer__wrapper{
+        padding-inline: 1rem;
+        /* gap: 5rem; */
+    }
+    .footer__links_wrapper{
+        position: absolute;
+        padding: 2rem;
+        bottom: 0;
+    }
+}
