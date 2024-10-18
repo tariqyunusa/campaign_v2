@@ -64,7 +64,7 @@
 .hire__section_close_2:hover{
     animation: rotationaltstop .5s ease-in-out .5s forwards;
 }
-.hire__section_close_3{
+.hire__section_close_3:hover{
     animation: rotationstop .5s ease-in-out .5s forwards;
 }
 @keyframes rotation{

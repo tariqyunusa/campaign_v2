@@ -84,7 +84,7 @@ useEffect(() => {
     <div className='main_guy'>
       <div className='main'>
         <Hero containerAnimation={scrollRef.current}/>
-    </div>
+      </div>
     </div>
     <Works />
     <Testiomonials />

@@ -8,13 +8,12 @@
     transform: translate(-50%, -50%);
     cursor: pointer;
     padding: 2rem;
-}
-.notes__wrapper{
     font-size: 1rem;
     font-weight: 700;
     color: #fff;
     text-align: center;
 }
+
 @media screen and (min-width: 320px) and (max-width: 900px) {
     .notes__wrapper{
         display: none;

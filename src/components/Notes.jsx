@@ -46,7 +46,7 @@ const Notes = ({ posX, posY }) => {
 
       
         return () => clearInterval(intervalId);
-    }, [posX, posY, ]); 
+    }, [posX, posY]); 
 
     return (
         <div>
@@ -59,7 +59,7 @@ const Notes = ({ posX, posY }) => {
                         top: note.posY,
                         left: note.posX,
                         position: 'absolute',
-                        display: (note.posX === 0 || note.posY === 0) ? 'none' : 'block'
+                        display: (note.posX === 0 || note.posY === 0) ? 'none' : 'flex'
                     }}
                 >
                     <p>{note.text}</p>
