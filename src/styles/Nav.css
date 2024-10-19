@@ -1,12 +1,12 @@
 .nav_container{
     width: 100vw;
-    padding-inline: 10rem;
+    /* padding-inline: 10rem; */
     height: 6rem;
     background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     z-index: 9999;
     position: fixed;
     top: 0;
@@ -20,6 +20,53 @@
 }
 .menu{
     mix-blend-mode: difference;
+}
+.nav__ul{
+    width: 100%;
+    height: 40vh;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2rem;
+    /* transform: translateY(50vh); */
+    transition: transfrom 1s ease-in-out;
+
+}
+.nav__open{
+    transform: translateY(-40vh);
+    transition: transfrom 1s ease-in-out;
+}
+.ul__nav_upper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.links__wrapper{
+    gap: 2rem;
+    display: flex;
+    width: 40%;
+    flex-wrap: wrap;
+}
+.nav__links__item{
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+}
+.nav__links_fillers{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+}
+.nav__links_filler_span{
+    opacity: 0.4;
+}
+.nav__links_fillers p {
+    color: #fff;
 }
 @media screen and (min-width: 320px) and (max-width: 899px) {
     .nav_container{
