@@ -78,9 +78,10 @@ img{
     object-fit: cover;
 }
 .img__nav__wrapper{
-    width: 8rem;
+    width: 10rem;
     height: 12rem;
 }
+
 nav ul:has(li:hover) li:not(:hover) {
     filter: blur(10px);
 }

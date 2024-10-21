@@ -20,13 +20,11 @@ const Nav = ({color}) => {
       <ul className="nav__ul ">
         <div className='ul__nav_upper'>
         <div className ='links__wrapper'>
-          <div>
           <li><a href="" className='nav__links__item'>Home</a></li>
           <li><a href="" className='nav__links__item'>About</a></li>
           <li><a href="" className='nav__links__item'>Works</a></li>
           <li><a href="" className='nav__links__item'>Contact</a></li>
           <li><a href="" className='nav__links__item'>Hire Me</a></li>
-          </div>
         </div>
         <div className="img__nav__wrapper">
           <img src={Image1} alt=""  />
