@@ -29,7 +29,7 @@ const Nav = ({color}) => {
           </div>
         </div>
         <div className="img__nav__wrapper">
-          {/* <img src={Image1} alt=""  /> */}
+          <img src={Image1} alt=""  />
         </div>
         </div>
         <div className="nav__links_fillers">

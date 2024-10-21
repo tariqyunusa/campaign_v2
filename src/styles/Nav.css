@@ -72,15 +72,15 @@ nav ul li{
     transition: filter 0.3s ease;
     list-style: none;
 }
-/* img{
+img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-} */
-/* .img__nav__wrapper{
-    width: 10rem;
-    height: 15rem;
-} */
+}
+.img__nav__wrapper{
+    width: 8rem;
+    height: 12rem;
+}
 nav ul:has(li:hover) li:not(:hover) {
     filter: blur(10px);
 }
