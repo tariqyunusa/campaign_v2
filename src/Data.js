@@ -2,6 +2,11 @@ import misolo from "../src/assets/misolo.webp"
 import seeds from "../src/assets/seeds.webp"
 import coffee from "../src/assets/sibaristicas.webp"
 import drone from "../src/assets/drone.webp"
+import image1 from "../src/assets/output1.jpg"
+import image2 from "../src/assets/output2.jpg"
+import image3 from "../src/assets/output3.jpg"
+import image4 from "../src/assets/output4.jpg"
+import image5 from "../src/assets/output5.jpg"
 export const Slider = [{
     name: "Misolo Cosmetics", 
     works: ["Creative Direction", "Art Direction", "Web Presence"],
@@ -66,3 +71,29 @@ export const Hire = [
     }
   ];
 export const LinkColors = ["#B1CF5F", "#E09F3E", "#9E2A2B", "#73E2A7", "#335C67"]
+export const links = [{
+    name: "Home",
+    path: "/",
+    image: image1 
+},
+{
+    name: "About",
+    path: "/",
+    image: image2 
+},
+{
+    name: "Works",
+    path: "/",
+    image: image3 
+},
+{
+    name: "Contact",
+    path: "/",
+    image: image4 
+},
+{
+    name: "Hire Me",
+    path: "/",
+    image: image5 
+},
+]
