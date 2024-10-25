@@ -3,7 +3,7 @@ import '../styles/Nav.css'
 import { FiMenu } from "react-icons/fi";
 // import Logo from '../assets/Subtract.png'
 import Logo from '../assets/Subtract.svg'
-import links from '../Data'
+import {links} from '../Data'
 
 
 const Nav = ({color}) => {
@@ -25,7 +25,7 @@ const Nav = ({color}) => {
           ))}
         </div>
         <div className="img__nav__wrapper">
-          <img src={Image1} alt=""  />
+          {/* <img src={Image1} alt=""  /> */}
         </div>
         </div>
         <div className="nav__links_fillers">
