@@ -57,10 +57,16 @@
 .nav__links_fillers{
     display: flex;
     position: absolute;
+    width: 93%;
+    justify-content: space-between;
     bottom: 0;
     gap: 2rem;
     margin-bottom: 2rem;
 
+}
+.nav__links_span_wrapper{
+    display: flex;
+    gap: 1rem;
 }
 .nav__links_filler_span{
     opacity: 0.4;
@@ -80,6 +86,9 @@ img{
 .img__nav__wrapper{
     width: 10rem;
     height: 12rem;
+}
+.icon__close{
+    cursor: pointer;
 }
 
 nav ul:has(li:hover) li:not(:hover) {

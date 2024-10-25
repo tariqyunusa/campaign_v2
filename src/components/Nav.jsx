@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi";
 // import Logo from '../assets/Subtract.png'
 import Logo from '../assets/Subtract.svg'
 import {links} from '../Data'
+import { FiX } from "react-icons/fi";
 
 
 const Nav = ({color}) => {
@@ -29,10 +30,12 @@ const Nav = ({color}) => {
         </div>
         </div>
         <div className="nav__links_fillers">
-          <p>Nav design concept by studio lumio</p>
-          <p>Project built by Tariq Yunusa</p>
+          <div className='nav__links_span_wrapper'>
+          <p><span className='nav__links_filler_span'>Nav design concept by</span>  studio lumio</p>
+          <p><span className='nav__links_filler_span'>Project built by</span>  Tariq Yunusa</p>
           <p><span className='nav__links_filler_span'>Font: </span>Suse</p>
-          
+          </div>
+          <div className='icon__close' ><FiX /></div>
         </div>
       </ul>
     </nav>
