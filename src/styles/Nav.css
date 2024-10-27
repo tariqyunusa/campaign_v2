@@ -28,10 +28,14 @@
     position: absolute;
     left: 0;
     top: 0;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     transform: translateY(-40vh);
     transition: transform 1s ease-in-out;
 
+}
+.link_cover{
+    position: relative;
+    overflow: hidden;
 }
 .nav__open{
     transform: translateY(0);
@@ -78,6 +82,11 @@
 nav ul li{
     transition: filter 0.3s ease;
     list-style: none;
+    position: absolute;
+    top: 50px;
+}
+nav ul li:nth-child(2) {
+    font-style: italic;
 }
 
 .img__nav__wrapper{
@@ -93,6 +102,7 @@ nav ul li{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 nav ul:has(li:hover) li:not(:hover) {

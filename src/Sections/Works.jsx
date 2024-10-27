@@ -20,6 +20,41 @@ const Works = () => {
   const delayedMouse = useRef({ x: 0, y: 0 });
   const rafId = useRef(null);
 
+  // Function to go to the next image with animation
+  const NextIndex = () => {
+    const tl = gsap.timeline();
+
+    tl.to('.work___info_header', {
+      y: 200,
+      duration: 1,
+      ease: "power2.inOut",
+    })
+    .to('.work___roles_paragraph', {
+      y: -800,
+      duration: 1,
+      ease: "power2.inOut",
+    }, "=-1")
+    .to(headlinerRef.current, {
+      y: 0,
+      duration: 1,
+      ease: "power2.inOut",
+      onComplete: () => {
+        setIndex((currentIndex) => (currentIndex + 1) % Slider.length); // Change index after animation
+      },
+    })
+    .to('.work___roles_paragraph', {
+      y: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    }, "-=1");
+  };
+
+  // Function to go to the previous image
+  const prevIndex = () => {
+    setIndex((currentIndex) => (currentIndex === 0 ? Slider.length - 1 : currentIndex - 1));
+  };
+
+  // Handle mouse movement
   const handleMouseMove = (e) => {
     const workElement = workRef.current;
     if (!workElement) return;
@@ -43,6 +78,7 @@ const Works = () => {
     }
   };
 
+  // Animate cursor position
   const animate = () => {
     delayedMouse.current = {
       x: lerp(delayedMouse.current.x, mouse.current.x, 0.1),
@@ -53,18 +89,12 @@ const Works = () => {
     rafId.current = window.requestAnimationFrame(animate);
   };
 
+  // Lerp function
   const lerp = (start, end, factor) => {
     return start + (end - start) * factor;
   };
 
-  const NextIndex = () => {
-    setIndex((currentIndex) => (currentIndex + 1) % Slider.length);
-  };
-
-  const prevIndex = () => {
-    setIndex((currentIndex) => (currentIndex === 0 ? Slider.length - 1 : currentIndex - 1));
-  };
-
+  // Handle index change on click
   const handleIndex = (e) => {
     const workElement = workRef.current;
     if (!workElement) return;
@@ -120,6 +150,7 @@ const Works = () => {
     }
   };
 
+  // Setup mouse move event and animation frame
   useEffect(() => {
     const workElement = workRef.current;
     if (workElement) {
@@ -127,11 +158,15 @@ const Works = () => {
       rafId.current = window.requestAnimationFrame(animate);
     }
 
+    // Set up the interval to change images every 5 seconds
+    const intervalId = setInterval(NextIndex, 5000);
+
     return () => {
       if (workElement) {
         workElement.removeEventListener("mousemove", handleMouseMove);
       }
-      window.cancelAnimationFrame(rafId.current); 
+      window.cancelAnimationFrame(rafId.current);
+      clearInterval(intervalId); // Clear interval on unmount
     };
   }, []);
 
