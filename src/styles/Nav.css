@@ -1,6 +1,6 @@
 .nav_container{
     width: 100vw;
-    /* padding-inline: 10rem; */
+    padding-inline: 10rem;
     height: 6rem;
     background: transparent;
     display: flex;
@@ -23,19 +23,19 @@
 }
 .nav__ul{
     width: 100%;
-    height: 40vh;
+    /* height: 40vh; */
     background-color: #fff;
     position: absolute;
     left: 0;
     top: 0;
-    padding: 2rem;
-    /* transform: translateY(50vh); */
-    transition: transfrom 1s ease-in-out;
+    padding: 3rem 2rem;
+    transform: translateY(-40vh);
+    transition: transform 1s ease-in-out;
 
 }
 .nav__open{
-    transform: translateY(-40vh);
-    transition: transfrom 1s ease-in-out;
+    transform: translateY(0);
+    transition: transform 1s ease-in-out;
 }
 .ul__nav_upper{
     display: flex;
@@ -59,9 +59,10 @@
     position: absolute;
     width: 93%;
     justify-content: space-between;
+    align-items: center;
     bottom: 0;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin: 1rem 0;
 
 }
 .nav__links_span_wrapper{
@@ -78,17 +79,20 @@ nav ul li{
     transition: filter 0.3s ease;
     list-style: none;
 }
-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 .img__nav__wrapper{
     width: 10rem;
     height: 12rem;
+    transition: opacity 0.3s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
 }
 .icon__close{
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav ul:has(li:hover) li:not(:hover) {
