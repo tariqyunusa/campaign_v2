@@ -7,6 +7,8 @@ const AppContext = createContext()
 export const AppProvider = ({children}) => {
     const refs = useRef([])
     const gsapInstance = gsap
+ 
+
 
     const splitWords = (phrase) => {
         let body = []
@@ -26,10 +28,12 @@ export const AppProvider = ({children}) => {
         })
         return letters
       }
+
+
     
 
     return(
-        <AppContext.Provider value={{gsapInstance, refs, splitWords, splitLetters}}>
+        <AppContext.Provider value={{gsapInstance, refs, splitWords, splitLetters,}}>
             {children}
         </AppContext.Provider>
     )

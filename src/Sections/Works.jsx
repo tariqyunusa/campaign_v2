@@ -5,9 +5,10 @@ import { useAppContext } from '../AppContext';
 import exploreImg from "../assets/arrow-up-right.png";
 import Cursor from '../components/Cursor';
 import gsap from 'gsap';
+import { handleIndexChange, nextSeq, prevSeq } from '../animations/work';
 
 const Works = () => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0)
   const { gsapInstance, splitWords } = useAppContext();
   const [mousePosition, setMousePosition] = useState({ left: 0, top: 0 });
   const [showCursor, setShowCursor] = useState(false);
@@ -19,40 +20,12 @@ const Works = () => {
   const mouse = useRef({ x: 0, y: 0 });
   const delayedMouse = useRef({ x: 0, y: 0 });
   const rafId = useRef(null);
+  var centerX
 
   // Function to go to the next image with animation
-  const NextIndex = () => {
-    const tl = gsap.timeline();
-
-    tl.to('.work___info_header', {
-      y: 200,
-      duration: 1,
-      ease: "power2.inOut",
-    })
-    .to('.work___roles_paragraph', {
-      y: -800,
-      duration: 1,
-      ease: "power2.inOut",
-    }, "=-1")
-    .to(headlinerRef.current, {
-      y: 0,
-      duration: 1,
-      ease: "power2.inOut",
-      onComplete: () => {
-        setIndex((currentIndex) => (currentIndex + 1) % Slider.length); // Change index after animation
-      },
-    })
-    .to('.work___roles_paragraph', {
-      y: 0,
-      duration: 1,
-      ease: "power2.inOut",
-    }, "-=1");
-  };
-
+   const NextIndex = () => nextSeq(headlinerRef, setIndex, Slider)
   // Function to go to the previous image
-  const prevIndex = () => {
-    setIndex((currentIndex) => (currentIndex === 0 ? Slider.length - 1 : currentIndex - 1));
-  };
+  const prevIndex = () => prevSeq(headlinerRef, setIndex, Slider)
 
   // Handle mouse movement
   const handleMouseMove = (e) => {
@@ -100,54 +73,11 @@ const Works = () => {
     if (!workElement) return;
 
     const rect = workElement.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
+     centerX = rect.left + rect.width / 2;
     const tl = gsap.timeline();
 
-    if (e.clientX >= centerX) {
-      tl.to('.work___info_header', {
-        y: 200,
-        duration: 1,
-        ease: "power2.inOut",
-        onComplete: () => NextIndex(),
-      })
-      .to('.work___roles_paragraph', {
-        y: -800,
-        duration: 1,
-        ease: "power2.inOut",
-      }, "=-1")
-      .to(headlinerRef.current, {
-        y: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      })
-      .to('.work___roles_paragraph', {
-        y: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      }, "-=1");
-    } else {
-      tl.to('.work___info_header', {
-        y: -200,
-        duration: 1,
-        ease: "power2.inOut",
-        onComplete: () => prevIndex(),
-      })
-      .to('.work___roles_paragraph', {
-        y: 200,
-        duration: 1,
-        ease: "power2.inOut",
-      }, "=-1")
-      .to(headlinerRef.current, {
-        y: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      })
-      .to('.work___roles_paragraph', {
-        y: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      }, "-=1");
-    }
+    handleIndexChange(e, centerX, headlinerRef,setIndex, Slider)
+    
   };
 
   // Setup mouse move event and animation frame

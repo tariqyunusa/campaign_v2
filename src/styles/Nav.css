@@ -89,14 +89,14 @@ nav ul li:nth-child(2) {
     font-style: italic;
 }
 
-.img__nav__wrapper{
+/* .img__nav__wrapper{
     width: 10rem;
     height: 12rem;
     transition: opacity 0.3s ease-in-out;
     background-size: cover;
     background-position: center;
     opacity: 1;
-}
+} */
 .icon__close{
     cursor: pointer;
     display: flex;
@@ -112,4 +112,7 @@ nav ul:has(li:hover) li:not(:hover) {
     .nav_container{
         padding-inline: 1rem;
     } 
+    .nav__ul{
+        transform: translateY(-100vh);
+    }
 }
