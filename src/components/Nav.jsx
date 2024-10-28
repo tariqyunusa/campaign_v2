@@ -16,25 +16,25 @@ const Nav = ({ color }) => {
     setHoveredLinkIndex(index);
   };
 
-  useEffect(() => {
-    if(isOpen) {
-      listRef.current.forEach((ref, index) => {
-        if(ref) {
-          gsap.to(ref, {
-            y: -50,
-            stagger: 0.1
-          })
-        }
-      })
-    }
-    // else {
-    //   gsap.to(listRef.current.children, {
-    //     opacity: 0,
-    //     y: 20,
-    //     duration: 0.4,
-    //     ease: "power2.out",
-    //   })
-  },[isOpen])
+  // useEffect(() => {
+  //   if(isOpen) {
+  //     listRef.current.forEach((ref, index) => {
+  //       if(ref) {
+  //         gsap.to(ref, {
+  //           y: -50,
+  //           stagger: 0.1
+  //         })
+  //       }
+  //     })
+  //   }
+  //   else {
+  //     gsap.to(listRef.current.children, {
+  //       opacity: 0,
+  //       y: 20,
+  //       duration: 0.4,
+  //       ease: "power2.out",
+  //     })
+  // },[isOpen])
 
   const toggleNav = () => {
     setIsOpen(!isOpen)
@@ -53,16 +53,15 @@ const Nav = ({ color }) => {
         <div className='ul__nav_upper'>
           <div className='links__wrapper'>
             {links.map((link, i) => (
-             <div className='link_cover' key={i}>
                <li
-          
+                key={i}
                 onMouseEnter={() => handleMouseEnter(i)}
                 ref={(el) => listRef.current[i] = el}
                 // onMouseLeave={handleMouseLeave} 
               >
                 <a href={link.path} className='nav__links__item'>{link.name}</a>
               </li>
-             </div>
+            
             ))}
           </div>
           {/* {hoveredLinkIndex !== null && (
