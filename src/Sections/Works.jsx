@@ -74,7 +74,7 @@ const Works = () => {
 
     const rect = workElement.getBoundingClientRect();
      centerX = rect.left + rect.width / 2;
-    const tl = gsap.timeline();
+    
 
     handleIndexChange(e, centerX, headlinerRef,setIndex, Slider)
     

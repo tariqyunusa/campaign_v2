@@ -14,7 +14,7 @@ export const AppProvider = ({children}) => {
         let body = []
         phrase.split(" ").forEach((word, i ) => {
           const letters = splitLetters(word)
-          body.push(<p key={word + "_" + i}>{letters}</p>)
+          body.push(<p key={word + "_" + i} data-animation = "paragraph">{letters}</p>)
           // console.log("the words", letters);
           
         })
@@ -24,7 +24,7 @@ export const AppProvider = ({children}) => {
       const splitLetters = (word) => {
         let letters = []
         word.split("").forEach((letter, i) => {
-          letters.push(<span key={letter + "_" + i} ref={el => refs.current.push(el)}>{letter}</span>)
+          letters.push(<span key={letter + "_" + i}  ref={el => refs.current.push(el)}>{letter}</span>)
         })
         return letters
       }

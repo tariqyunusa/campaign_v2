@@ -89,7 +89,7 @@ const Hire = () => {
             <div className="close hire__section_close_3"></div>
             {showLink && <HireLink posX={mousePos.x} posY={mousePos.y} />}
             <div className="hire__headline_wrapper">
-                <h1 className='hire__headline' ref={wrapperRef} onMouseEnter={mouseEnter}>
+                <h1 className='hire__headline' ref={wrapperRef} onMouseEnter={mouseEnter} data-animation = "paragraph">
                     HIRE US FOR YOUR NEXT PROJECT.
                 </h1>
             </div>
