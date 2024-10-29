@@ -12,6 +12,7 @@ import whiteLogo from './assets/Subtract.svg'
 import Works from './Sections/Works'
 import Testiomonials from './Sections/Testimonial'
 import Hire from './Sections/Hire'
+import { textReveal } from './animations/textReveal'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -55,6 +56,10 @@ useEffect(() => {
   lenis.raf(time * 1000); 
 });
   gsap.ticker.lagSmoothing(0);
+},[])
+
+useEffect(() => {
+  textReveal()
 },[])
 
 useEffect(() => {
