@@ -14,7 +14,7 @@
     cursor: pointer;
     width: 15%;
     /* flex: 1; */
-    transition: all 2s ease-in-out;
+    transition: width 2s ease-in-out;
 }
 /* .review-2{
     width: 55%;
@@ -27,6 +27,7 @@
 }
 .review:hover{
     width: 55%;
+    transition: width 2s ease-in-out;
 }
 .review__quote{
     padding: 2rem;

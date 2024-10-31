@@ -37,15 +37,13 @@ const Hero = ({containerAnimation}) => {
         <div className="first_cl close"></div>
         <div className="second_cl close"></div>
         <div className="main__hero_container">
-            <h1 className='hero__header_text'>Campaign</h1>
+            <h1 className='hero__header_text' data-animation = 'header'>Campaign</h1>
         </div>
         <div className="hero__footer">
             <div className="location__hero">
-                <p>{`NG (${formatTime(time)})`}</p>
+                <p data-animation = 'paragraph'>{`NG (${formatTime(time)})`}</p>
             </div>
-            {/* <div className="location__hero">
-                <p>12:00 am</p>
-            </div> */}
+            
         </div>
       </main>
       </div>

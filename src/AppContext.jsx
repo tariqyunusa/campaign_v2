@@ -26,7 +26,7 @@ export const AppProvider = ({children}) => {
         word.split("").forEach((letter, i) => {
           letters.push(<span key={letter + "_" + i}  ref={el => refs.current.push(el)}>{letter}</span>)
         })
-        console.log(letters ,"words hope");
+        // console.log(letters ,"words hope");
         return letters
         
         
