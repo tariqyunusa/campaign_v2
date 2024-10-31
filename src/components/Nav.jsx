@@ -1,23 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/Nav.css';
 import { FiMenu, FiX } from "react-icons/fi";
 import Logo from '../assets/Subtract.svg';
 import { links } from '../Data';
 import gsap from 'gsap';
 import { Link } from 'react-scroll';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = ({ color }) => {
   const [hoveredLinkIndex, setHoveredLinkIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false)
-  const listRef = useRef([])
+  const [isOpen, setIsOpen] = useState(false);
+  const listRef = useRef([]);
+  const navigate = useNavigate();
 
   const handleMouseEnter = (index) => {
     setHoveredLinkIndex(index);
   };
 
   const toggleNav = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
+
+  const handleClick = (link) => {
+    if (link.path === "/") {
+      navigate(link.path);  // Navigate to the different page
+    }
+  };
 
   return (
     <nav className='nav_container'>
@@ -32,23 +40,23 @@ const Nav = ({ color }) => {
         <div className='ul__nav_upper'>
           <div className='links__wrapper'>
             {links.map((link, i) => (
-               <li
+              <li
                 key={i}
                 onMouseEnter={() => handleMouseEnter(i)}
                 ref={(el) => listRef.current[i] = el}
-                // onMouseLeave={handleMouseLeave} 
               >
-                <Link href={link.path} to={link.path} smooth={true} duration={800} className='nav__links__item'>{link.name}</Link>
+                {link.path === "/" ? (
+                  <span onClick={() => handleClick(link)} className='nav__links__item'>
+                    {link.name}
+                  </span>
+                ) : (
+                  <Link to={link.path} smooth={true} duration={800} className='nav__links__item'>
+                    {link.name}
+                  </Link>
+                )}
               </li>
-            
             ))}
           </div>
-          {/* {hoveredLinkIndex !== null && (
-            <div
-              className="img__nav__wrapper"
-              style={{ backgroundImage: `url(${links[hoveredLinkIndex].image})` }}
-            ></div>
-          )} */}
         </div>
         <div className="nav__links_fillers">
           <div className='nav__links_span_wrapper'>
