@@ -11,31 +11,9 @@ const Nav = ({ color }) => {
   const [isOpen, setIsOpen] = useState(false)
   const listRef = useRef([])
 
- 
-
   const handleMouseEnter = (index) => {
     setHoveredLinkIndex(index);
   };
-
-  // useEffect(() => {
-  //   if(isOpen) {
-  //     listRef.current.forEach((ref, index) => {
-  //       if(ref) {
-  //         gsap.to(ref, {
-  //           y: -50,
-  //           stagger: 0.1
-  //         })
-  //       }
-  //     })
-  //   }
-  //   else {
-  //     gsap.to(listRef.current.children, {
-  //       opacity: 0,
-  //       y: 20,
-  //       duration: 0.4,
-  //       ease: "power2.out",
-  //     })
-  // },[isOpen])
 
   const toggleNav = () => {
     setIsOpen(!isOpen)

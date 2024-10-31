@@ -18,13 +18,7 @@ const About = ({container}) => {
         start: "left end",
         end: `+=${window.innerHeight / 2}`,
         containerAnimation: container,
-        // onUpdate: (self) => {
-        //   gsap.to('.second_section_second_cl', {
-        //     x: `${100 * self.progress} vw`,
-        //     duration: 0.6,
-        //     ease: "none"
-        //   })
-        // }
+      
       },
       opacity: 1,
       ease: "none",
