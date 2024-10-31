@@ -73,22 +73,23 @@ export const Hire = [
 export const LinkColors = ["#B1CF5F", "#E09F3E", "#9E2A2B", "#73E2A7", "#335C67"]
 export const links = [{
     name: "Home",
-    path: "/",
+    path: "hero",
     image: image1 
+    
 },
 {
     name: "About",
-    path: "/",
+    path: "about_section",
     image: image2 
 },
 {
     name: "Works",
-    path: "/",
+    path: "work__section",
     image: image3 
 },
 {
     name: "Contact",
-    path: "/",
+    path: "hire__wrapper",
     image: image4 
 },
 {

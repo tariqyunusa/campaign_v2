@@ -4,6 +4,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import Logo from '../assets/Subtract.svg';
 import { links } from '../Data';
 import gsap from 'gsap';
+import { Link } from 'react-scroll';
 
 const Nav = ({ color }) => {
   const [hoveredLinkIndex, setHoveredLinkIndex] = useState(0);
@@ -59,7 +60,7 @@ const Nav = ({ color }) => {
                 ref={(el) => listRef.current[i] = el}
                 // onMouseLeave={handleMouseLeave} 
               >
-                <a href={link.path} className='nav__links__item'>{link.name}</a>
+                <Link href={link.path} to={link.path} smooth={true} duration={800} className='nav__links__item'>{link.name}</Link>
               </li>
             
             ))}
