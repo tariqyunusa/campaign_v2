@@ -69,6 +69,12 @@ function App() {
 
 function Content({ nav, scrollRef }) {
   const location = useLocation();
+ 
+
+
+  // useEffect(() => {
+  //   window.location.reload();
+  // }, [location.pathname]);
 
   return (
     <>
@@ -76,7 +82,7 @@ function Content({ nav, scrollRef }) {
       <Nav color={nav} />
 
       <div className='main_guy'>
-        <div className='main'>
+        <div className='main' >
           <Routes>
             <Route path='/' element={<Hero containerAnimation={scrollRef.current} />} />
             <Route path='/hireMe' element={<HireMe />} />
