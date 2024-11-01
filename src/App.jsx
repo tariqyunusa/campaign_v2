@@ -1,5 +1,4 @@
 import Hero from './Sections/Hero';
-import About from './Sections/About';
 import Nav from './components/Nav';
 import gsap from 'gsap';
 import Lenis from 'lenis';
@@ -11,8 +10,9 @@ import whiteLogo from './assets/Subtract.svg';
 import Works from './Sections/Works';
 import Testimonials from './Sections/Testimonial';
 import Hire from './Sections/Hire';
+import HireMe from './pages/HireMe';
 import { textReveal } from './animations/textReveal';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -61,27 +61,38 @@ function App() {
   return (
     <AppProvider>
       <Router>
-        <Nav color={nav} />
-
-   
-        <div className='main_guy'>
-          <div className='main'>
-            <Routes>
-              <Route path='/' element={<Hero containerAnimation={scrollRef.current} />} />
-            </Routes>
-          </div>
-        </div>
-        
-   
-        <Routes>
-          <Route path='/' element={<Works />} />
-          <Route path='/' element={<Testimonials />} />
-          <Route path='/' element={<Hire />} />
-          <Route path='/' element={<About />} />
-   
-        </Routes>
+        <Content nav={nav} scrollRef={scrollRef} />
       </Router>
     </AppProvider>
+  );
+}
+
+function Content({ nav, scrollRef }) {
+  const location = useLocation();
+
+  return (
+    <>
+     
+      <Nav color={nav} />
+
+      <div className='main_guy'>
+        <div className='main'>
+          <Routes>
+            <Route path='/' element={<Hero containerAnimation={scrollRef.current} />} />
+            <Route path='/hireMe' element={<HireMe />} />
+          </Routes>
+        </div>
+      </div>
+
+      {/* Only render these components on the main page */}
+      {location.pathname === '/' && (
+        <>
+          <Works />
+          <Testimonials />
+          <Hire />
+        </>
+      )}
+    </>
   );
 }
 

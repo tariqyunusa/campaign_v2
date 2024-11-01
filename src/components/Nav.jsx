@@ -20,12 +20,16 @@ const Nav = ({ color }) => {
   const toggleNav = () => {
     setIsOpen(!isOpen);
   };
-
   const handleClick = (link) => {
-    if (link.path === "/") {
-      navigate(link.path);  // Navigate to the different page
+    console.log('Navigating to:', link.path); 
+    if (link.name === "Hire Me") {
+      navigate("/HireMe"); 
+    } else {
+      navigate(link.path); 
     }
+    toggleNav(); 
   };
+  
 
   return (
     <nav className='nav_container'>
@@ -39,23 +43,33 @@ const Nav = ({ color }) => {
       <ul className={`nav__ul ${isOpen ? "nav__open" : ""}`} >
         <div className='ul__nav_upper'>
           <div className='links__wrapper'>
-            {links.map((link, i) => (
-              <li
-                key={i}
-                onMouseEnter={() => handleMouseEnter(i)}
-                ref={(el) => listRef.current[i] = el}
-              >
-                {link.path === "/" ? (
-                  <span onClick={() => handleClick(link)} className='nav__links__item'>
-                    {link.name}
-                  </span>
-                ) : (
-                  <Link to={link.path} smooth={true} duration={800} className='nav__links__item'>
-                    {link.name}
-                  </Link>
-                )}
-              </li>
-            ))}
+          {links.map((link, i) => (
+  <li
+    key={i}
+    onMouseEnter={() => handleMouseEnter(i)}
+    ref={(el) => (listRef.current[i] = el)}
+  >
+    {link.name === "Hire Me" ? ( 
+      <Link
+        onClick={() => handleClick(link)} 
+        className='nav__links__item' 
+      >
+        {link.name}
+      </Link>
+    ) : (
+      <Link
+        to={link.path}
+        smooth={true}
+        duration={800}
+        className='nav__links__item'
+        onClick={() => handleClick(link)} 
+      >
+        {link.name}
+      </Link>
+    )}
+  </li>
+))}
+
           </div>
         </div>
         <div className="nav__links_fillers">

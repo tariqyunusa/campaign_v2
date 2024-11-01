@@ -2,7 +2,7 @@ import React from 'react'
 import "../styles/HireMe.css"
 const HireMe = () => {
   return (
-    <div>
+    <div className='hireme__wrapper'>
       Hire ME
     </div>
   )

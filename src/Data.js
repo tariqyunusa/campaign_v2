@@ -7,6 +7,7 @@ import image2 from "../src/assets/output2.jpg"
 import image3 from "../src/assets/output3.jpg"
 import image4 from "../src/assets/output4.jpg"
 import image5 from "../src/assets/output5.jpg"
+import HireMe from "./pages/HireMe"
 export const Slider = [{
     name: "Misolo Cosmetics", 
     works: ["Creative Direction", "Art Direction", "Web Presence"],
@@ -73,7 +74,7 @@ export const Hire = [
 export const LinkColors = ["#B1CF5F", "#E09F3E", "#9E2A2B", "#73E2A7", "#335C67"]
 export const links = [{
     name: "Home",
-    path: "hero",
+    path: "/",
     image: image1 
     
 },
@@ -94,7 +95,7 @@ export const links = [{
 },
 {
     name: "Hire Me",
-    path: "/",
+    path: "hireme__wrapper",
     image: image5 
 },
 ]

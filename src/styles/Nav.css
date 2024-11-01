@@ -82,6 +82,7 @@
 nav ul li{
     transition: filter 0.3s ease;
     list-style: none;
+    cursor: pointer;
     /* position: absolute; */
     /* top: 50px; */
 }
