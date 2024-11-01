@@ -127,4 +127,7 @@ nav ul:has(li:hover) li:not(:hover) {
     .nav__ul{
         transform: translateY(-100vh);
     }
+    .nav__open{
+        transform: translateY(0);
+    }
 }
